@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            textarea {
+                position: relative;
+                height: 200px;
+                width: 100%;
+            }
+        </style>
+        <meta charset = "UTF-8">
+        <meta name = "viesport" content = "width=device-width, initial-scale=1.0">
+        <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel = "stylesheet" integrity = "sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <title>API chatGPT</title>        
+    </head>
+    <body>
+        <div class = "container">
+            <h1 class = "text-center">API resumidor multilenguajes</h1>
+            <form action = "/resume" method = "POST">
+                <div class = "mb-2">
+                    <textarea for = "textToResume" name = "myTextArea" placeholder = "Ingrese el texto a resumir"></textarea>
+                </div>
+                <div class = "mb-2">
+                    <label for = "language" class = "form-label">
+                        Seleccione el lenguaje en el que se mostrara el resumen
+                    </label>
+                    <select name = "language" id = "language">
+                        <!--valores de option: en, es, ru, ja, pt-->
+                        <option value = "English">English</option>
+                        <option value = "Spanish">Spanish</option>
+                        <option value = "Russian">Russian</option>
+                        <option value = "Japanese">Japanese</option>
+                        <option value = "Germany">Germany</option>
+                        <option value = "Portuguese">Portuguese</option>                        
+                    </select>
+                </div>
+                <button type = "submit" class = "btn btn-danger">Resumir</button>
+                <br>
+
+                {% if resumen %}
+                <div class = "mt-4">
+                    <h3>
+                        Texto Traducido y Resumido:
+                    </h3>
+                    <p class = "lead">{{ resumen }}</p>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </body>
+</html>
